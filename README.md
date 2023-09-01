@@ -6,7 +6,6 @@ Before you begin setting up this project, please ensure you have completed the f
 
 ### 0. Setup Tutorial
 
-- [Tutorial - YouTuBe](https://www.youtube.com/watch?v=Q16ZH3kJWxw)
 
 ### 1. LLM -  OpenAI API Token
 <details><summary>👇click me</summary>
@@ -86,7 +85,7 @@ ELEVEN_LABS_API_KEY=<api key>
 ## 💿 Installation via Python
 - **Step 1**. Clone the repo
    ```sh
-   git clone https://github.com/Shaunwei/RealChar.git && cd RealChar
+   git clone https://github.com/Djmcflush/CofoundAIProd.git && cd CofoundAiProd
     ```
 - **Step 2**. Install requirements
     - Install [portaudio](https://people.csail.mit.edu/hubert/pyaudio/) and [ffmpeg](https://ffmpeg.org/download.html) for audio
@@ -152,8 +151,8 @@ ELEVEN_LABS_API_KEY=<api key>
 
 1. Docker image: you can use our docker image directly (if you are not using Apple M1/M2 CPUs)
     ```sh
-    docker pull shaunly/real_char:latest
-    docker tag shaunly/real_char:latest realtime-ai-character
+    docker pull djmcflush/cofoundai:latest
+    docker tag djmcflush/cofoundai:latest realtime-ai-character
     ```
     (Or you want build yourself) Build docker image
     ```sh
@@ -178,7 +177,7 @@ ELEVEN_LABS_API_KEY=<api key>
 <details><summary>👇click me</summary>
 
 ### Anyscale
-You can now use [Anyscale Endpoint](https://app.endpoints.anyscale.com/landing) to serve Llama-2 models in your RealChar easily! Simply register an account with Anyscale Endpoint. Once you get the API key, set this environment variable in your `.env` file:
+You can now use [Anyscale Endpoint](https://app.endpoints.anyscale.com/landing) to serve Llama-2 models in your CofoundAI easily! Simply register an account with Anyscale Endpoint. Once you get the API key, set this environment variable in your `.env` file:
 ```
 ANYSCALE_ENDPOINT_API_KEY=<your API Key>
 ```
