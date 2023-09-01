@@ -5,7 +5,7 @@
  */
 
 // TODO: user can access this page only if isConnected.current and selectedCharacter
-
+import { ClerkProvider, SignedIn, SignedOut, SignIn } from '@clerk/clerk-react';
 import React, { useState, useEffect } from 'react';
 import Languages from '../components/Languages';
 import MediaDevices from '../components/MediaDevices';
@@ -100,61 +100,68 @@ const Settings = ({
   };
 
   return (
-    <div className='settings'>
-      <h2 className='center'>Confirm your setting</h2>
+    <ClerkProvider frontendApi={process.env.CLERK_FRONTEND_API}>
+      <SignedIn>
+        <div className='settings'>
+          <h2 className='center'>Confirm your setting</h2>
 
-      <CommunicationMethod
-        commMethod={commMethod}
-        setCommMethod={setCommMethod}
-      />
+          <CommunicationMethod
+            commMethod={commMethod}
+            setCommMethod={setCommMethod}
+          />
 
-      <Languages
-        preferredLanguage={preferredLanguage}
-        setPreferredLanguage={setPreferredLanguage}
-      />
+          <Languages
+            preferredLanguage={preferredLanguage}
+            setPreferredLanguage={setPreferredLanguage}
+          />
 
-      <MediaDevices
-        selectedDevice={selectedDevice}
-        setSelectedDevice={setSelectedDevice}
-      />
+          <MediaDevices
+            selectedDevice={selectedDevice}
+            setSelectedDevice={setSelectedDevice}
+          />
 
-      <Models
-        isMobile={isMobile}
-        selectedModel={selectedModel}
-        setSelectedModel={setSelectedModel}
-      />
+          <Models
+            isMobile={isMobile}
+            selectedModel={selectedModel}
+            setSelectedModel={setSelectedModel}
+          />
 
-      <AdvancedOptions
-        isLoggedIn={isLoggedIn}
-        token={token}
-        setToken={setToken}
-        useSearch={useSearch}
-        setUseSearch={setUseSearch}
-        useQuivr={useQuivr}
-        setUseQuivr={setUseQuivr}
-        quivrApiKey={quivrApiKey}
-        setQuivrApiKey={setQuivrApiKey}
-        quivrBrainId={quivrBrainId}
-        setQuivrBrainId={setQuivrBrainId}
-        useMultiOn={useMultiOn}
-        setUseMultiOn={setUseMultiOn}
-        useEchoCancellation={useEchoCancellation}
-        setUseEchoCancellation={setUseEchoCancellation}
-        send={send}
-      />
+          <AdvancedOptions
+            isLoggedIn={isLoggedIn}
+            token={token}
+            setToken={setToken}
+            useSearch={useSearch}
+            setUseSearch={setUseSearch}
+            useQuivr={useQuivr}
+            setUseQuivr={setUseQuivr}
+            quivrApiKey={quivrApiKey}
+            setQuivrApiKey={setQuivrApiKey}
+            quivrBrainId={quivrBrainId}
+            setQuivrBrainId={setQuivrBrainId}
+            useMultiOn={useMultiOn}
+            setUseMultiOn={setUseMultiOn}
+            useEchoCancellation={useEchoCancellation}
+            setUseEchoCancellation={setUseEchoCancellation}
+            send={send}
+          />
 
-      <Button
-        variant='contained'
-        onClick={handleStartClick}
-        fullWidth
-        size='large'
-        sx={{
-          textTransform: 'none',
-        }}
-      >
-        Get Started
-      </Button>
-    </div>
+          <Button
+            variant='contained'
+            onClick={handleStartClick}
+            fullWidth
+            size='large'
+            sx={{
+              textTransform: 'none',
+            }}
+          >
+            Get Started
+          </Button>
+        </div>
+      </SignedIn>
+      <SignedOut>
+        <SignIn />
+      </SignedOut>
+    </ClerkProvider>
   );
 };
 

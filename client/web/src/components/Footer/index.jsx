@@ -14,7 +14,7 @@ const Footer = () => (
     <div className='rounded-social-buttons'>
       <a
         className='social-button github'
-        href='https://github.com/Shaunwei/RealChar'
+        href='https://github.com/Djmcflush/RealChar'
         target='_blank'
         rel='noreferrer'
       >

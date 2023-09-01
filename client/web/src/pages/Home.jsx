@@ -3,6 +3,7 @@
  *
  * created by Lynchee on 7/28/23
  */
+import { ClerkProvider, SignedIn, SignedOut, SignIn } from '@clerk/clerk-react';
 
 import React, { useState, useRef, useEffect } from 'react';
 import { isIP } from 'is-ip';
@@ -12,7 +13,8 @@ import lz from 'lz-string';
 import Characters from '../components/Characters';
 import Button from '@mui/material/Button';
 import { getHostName } from '../utils/urlUtils';
-import { signInWithGoogle } from '../components/Auth/SignIn';
+
+const clerkFrontendApi = 'comic-lemur-89.clerk.accounts.dev';
 
 const Home = ({
   isMobile,
@@ -40,9 +42,8 @@ const Home = ({
     let headers = {
       'Content-Type': 'application/json',
     };
-    if (token) {
-      headers['Authorization'] = `Bearer ${token}`;
-    }
+    // If you're using Clerk, you don't need to manually handle tokens in your fetch requests.
+    // Clerk will automatically include the necessary authorization headers.
     fetch(url, {
       method: 'GET',
       headers: headers,
@@ -56,7 +57,7 @@ const Home = ({
         setLoading(false);
         console.error(err);
       });
-  }, [setCharacterGroups, token]);
+  }, [setCharacterGroups]);
 
   const handleNextClick = () => {
     setCharacterConfirmed(true);
@@ -67,15 +68,7 @@ const Home = ({
   };
 
   const handleCreateCharacter = () => {
-    if (!isLoggedIn.current) {
-      signInWithGoogle(isLoggedIn, setToken).then(() => {
-        if (isLoggedIn.current) {
-          navigate('/create');
-        }
-      });
-    } else {
-      navigate('/create');
-    }
+    navigate('/create');
   };
 
   return (

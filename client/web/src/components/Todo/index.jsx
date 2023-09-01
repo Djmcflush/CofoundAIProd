@@ -1,15 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import {
-  TextField,
-  Button,
-  Checkbox,
-  FormControlLabel,
-  Typography,
-  Paper,
-  List,
-  ListItem,
-  ListItemText,
-} from '@material-ui/core';
+
+import { Input, Button, Checkbox, Typography, Card, List } from 'antd';
+
 import './style.css';
 
 const TodoList = ({ instructions }) => {
@@ -43,40 +35,35 @@ const TodoList = ({ instructions }) => {
   };
 
   return (
-    <Paper>
-      <Typography variant='h4'> Todo List</Typography>
-      <List>
-        {todos.map((todo, index) => (
-          <ListItem key={index}>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={todo.completed}
-                  onChange={() => handleToggleCompleted(index)}
-                />
-              }
-              label={
-                <ListItemText
-                  primary={todo.text}
-                  style={{
-                    textDecoration: todo.completed ? 'line-through' : 'none',
-                  }}
-                />
-              }
+    <Card title='Todo List'>
+      <List
+        dataSource={todos}
+        renderItem={(todo, index) => (
+          <List.Item>
+            <Checkbox
+              checked={todo.completed}
+              onChange={() => handleToggleCompleted(index)}
             />
+            <Typography.Text
+              style={{
+                textDecoration: todo.completed ? 'line-through' : 'none',
+              }}
+            >
+              {todo.text}
+            </Typography.Text>
             <Button onClick={() => handleRemove(index)}>Remove</Button>
-          </ListItem>
-        ))}
-      </List>
+          </List.Item>
+        )}
+      />
       <form>
-        <TextField
+        <Input
           type='text'
           value={newTodo}
           onChange={e => setNewTodo(e.target.value)}
         />
         <Button onClick={() => handleAdd(newTodo)}>Add</Button>
       </form>
-    </Paper>
+    </Card>
   );
 };
 

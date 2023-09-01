@@ -5,7 +5,7 @@ Client
 Read ios/README.md
 
 # Web
-Under realtime_ai_character/static
+Under cofound_ai/static
 
 # Terminal
 Under client/cli.py

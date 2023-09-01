@@ -11,7 +11,6 @@ import './App.css';
 // Components
 import Header from './components/Header';
 import Footer from './components/Footer';
-import { signInWithGoogle } from './components/Auth/SignIn';
 
 // Pages
 import Settings from './pages/Settings';
@@ -24,7 +23,6 @@ import Privacy from './pages/Privacy';
 import Support from './pages/Support';
 import Todo from './pages/ToDoList';
 // utils
-import auth from './utils/firebase';
 
 // Custom hooks
 import useWebsocket from './hooks/useWebsocket';
@@ -67,19 +65,6 @@ const App = () => {
   const isConnecting = useRef(false);
   const isConnected = useRef(false);
   const isMobile = window.innerWidth <= 768;
-
-  useEffect(() => {
-    auth.onAuthStateChanged(async user => {
-      setUser(user);
-      if (user) {
-        isLoggedIn.current = true;
-        let curToken = await auth.currentUser.getIdToken();
-        setToken(curToken);
-      } else {
-        isLoggedIn.current = false;
-      }
-    });
-  }, []);
 
   const stopAudioPlayback = () => {
     if (audioPlayer.current) {
@@ -215,15 +200,7 @@ const App = () => {
     try {
       // requires login if user wants to use gpt4 or claude.
       if (selectedModel !== 'gpt-3.5-turbo-16k') {
-        if (isLoggedIn.current) {
-          connectSocketWithState();
-        } else {
-          signInWithGoogle(isLoggedIn, setToken).then(() => {
-            if (isLoggedIn.current) {
-              connectSocketWithState();
-            }
-          });
-        }
+        connectSocketWithState();
       } else {
         connectSocketWithState();
       }

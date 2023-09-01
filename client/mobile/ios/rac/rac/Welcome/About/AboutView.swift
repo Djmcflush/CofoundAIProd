@@ -35,7 +35,7 @@ struct AboutView: View {
                             )
                             .foregroundColor(Color(red: 0.4, green: 0.52, blue: 0.83))
 
-                        Text("Shaunwei, lynchee-owo, ZongZiWang, pycui")
+                        Text("Djmcflush, lynchee-owo, ZongZiWang, pycui")
                             .font(
                                 Font.custom("Prompt", size: 16).weight(.regular)
                             )
@@ -55,7 +55,7 @@ struct AboutView: View {
                 }
 
                 CtaButton(style: .primary, action: {
-                    UIApplication.shared.open(URL(string: "https://github.com/Shaunwei/RealChar")!)
+                    UIApplication.shared.open(URL(string: "https://github.com/Djmcflush/RealChar")!)
                 }, text: "Contribute")
             }
             .padding(.bottom, geometry.safeAreaInsets.bottom > 0 ? 0 : 20)
