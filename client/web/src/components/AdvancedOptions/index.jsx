@@ -16,7 +16,7 @@ import Switch from '@mui/material/Switch';
 import IconButton from '@mui/material/IconButton';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import CustomTooltip from '../Common/CustomTooltip';
-import { signInWithGoogle } from '../Auth/SignIn';
+// import { signInWithGoogle } from '../Auth/SignIn';
 import { getHostName } from '../../utils/urlUtils';
 import { useCallback, useState } from 'react';
 import { TextField } from '@mui/material';
@@ -153,17 +153,8 @@ const AdvancedOptions = ({
           }
         };
 
-        if (!isLoggedIn.current || token === '') {
-          signInWithGoogle(isLoggedIn, setToken)
-            .then(() => {
-              fetchQuivrApiKey();
-            })
-            .catch(() => {
-              setUseQuivr(false);
-            });
-        } else {
-          fetchQuivrApiKey();
-        }
+        fetchQuivrApiKey();
+        setUseQuivr(false);
       } else {
         setQuivrApiKey('');
         setQuivrBrainId('');

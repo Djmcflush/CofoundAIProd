@@ -8,7 +8,7 @@ Welcome to the RealChar project contribution guide. If you're looking to help, t
 ```bash
 git clone https://github.com/<your username>/RealChar.git
 cd RealChar
-git remote add upstream https://github.com/Shaunwei/RealChar.git
+git remote add upstream https://github.com/Djmcflush/RealChar.git
 ```
 4. Install `pre-commit` and set up the `pre-commit` hooks for the repo:
 ```bash

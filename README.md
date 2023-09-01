@@ -1,3 +1,79 @@
+# <img src="./cofound_ai/static/realchar.svg" height="24px" style="padding-top:4px"/>RealChar. - Your Realtime AI Character
+<br/>
+<div align="center">
+    <img src="./cofound_ai/static/logo.png" alt="RealChar-logo" width="80%"  style="padding: 40px"/>
+</div>
+<br/>
+<p align="center">
+  🎙️🤖<em>Create, customize and talk to your AI Character/Companion in realtime</em>🎙️🤖
+</p>
+
+<div align="center">
+    <a href="https://discord.gg/e4AYNnFg2F">
+    <img src="https://img.shields.io/badge/discord-join%20chat-blue.svg?style=for-the-badge" alt="Join our Discord" height="20">
+    </a>
+    <a href="https://twitter.com/agishaun">
+    <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/agishaun?style=for-the-badge" height="20">
+    <a href="https://github.com/Djmcflush/RealChar">
+    <img alt="GitHub" src="https://img.shields.io/github/stars/Djmcflush/RealChar?style=for-the-badge&color=gold" height="20">
+    </a>
+    <a href="https://github.com/Djmcflush/RealChar/commits/main">
+    <img alt="GitHub" src="https://img.shields.io/github/last-commit/Djmcflush/RealChar/main?style=for-the-badge" height="20">
+    </a>
+    <a href="https://github.com/Djmcflush/RealChar/blob/main/README.md" target="_blank">
+    <img src="https://img.shields.io/static/v1?label=license&message=MIT&color=green&style=for-the-badge" alt="License" height="20">
+    </a>
+    <a href="https://hub.docker.com/repository/docker/shaunly/real_char/general" target="_blank">
+    <img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/shaunly/real_char?style=for-the-badge"  height="20">
+    </a>
+</div>
+
+## ✨ Demo
+Try our site at [RealChar.ai](https://realchar.ai/)
+
+(We are also beta-testing our iOS mobile app📱! Sign up [here](https://testflight.apple.com/join/JA6p9sZQ))
+
+Not sure how to pronounce RealChar? Listen to this 👉 [audip](https://github.com/Djmcflush/RealChar/assets/6148473/45d4773c-eb4f-41e5-a162-f9513d650b76)
+
+### Demo 1 - with AI Elon about cage fight!
+
+https://github.com/Djmcflush/RealChar/assets/5101573/5de0b023-6cf3-4947-84cb-596f429d109e
+
+### Demo 2 - with AI Raiden about AI and "real" memory
+
+https://github.com/Djmcflush/RealChar/assets/5101573/62a1f3d1-1166-4254-9119-97647be52c42
+
+
+
+__Demo settings: Web, GPT4, ElevenLabs with voice clone, Chroma, Google Speech to Text__
+
+## 🎯 Key Features
+- **Easy to use**: No coding required to create your own AI character.
+- **Customizable**: You can customize your AI character's personality, background, and even voice
+- **Realtime**: Talk to or message your AI character in realtime
+- **Multi-Platform**: You can talk to your AI character on web, terminal and mobile(Yes. we open source our mobile app)
+- **Most up-to-date AI**: We use the most up-to-date AI technology to power your AI character, including OpenAI, Anthropic Claude 2, Chroma, Whisper, ElevenLabs, etc.
+- **Modular**: You can easily swap out different modules to customize your flow. Less opinionated, more flexible. Great project to start your AI Engineering journey.
+
+## 🔬 Tech stack
+<div align="center">
+    <img src="https://storage.googleapis.com/assistly/static/realchar/techstackv003.jpeg" alt="RealChar-tech-stack" width="100%"  style="padding: 20px"/>
+</div>
+
+- ✅**Web**: [React JS](https://react.dev/), [Vanilla JS](http://vanilla-js.com/), [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
+- ✅**Mobile**: [Swift](https://developer.apple.com/swift/), [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
+- ✅**Backend**: [FastAPI](https://fastapi.tiangolo.com/), [SQLite](https://www.sqlite.org/index.html), [Docker](https://www.docker.com/)
+- ✅**Data Ingestion**: [LlamaIndex](https://www.llamaindex.ai/), [Chroma](https://www.trychroma.com/)
+- ✅**LLM Orchestration**: [LangChain](https://langchain.com/), [Chroma](https://www.trychroma.com/)
+- ✅**LLM**: [OpenAI GPT3.5/4](https://platform.openai.com/docs/api-reference/chat), [Anthropic Claude 2](https://docs.anthropic.com/claude/docs/getting-started-with-claude)
+- ✅**Speech to Text**: [Local Whisper](https://github.com/openai/whisper), [OpenAI Whisper API](https://platform.openai.com/docs/api-reference/audio), [Google Speech to Text](https://cloud.google.com/speech-to-text/docs#docs)
+- ✅**Text to Speech**: [ElevenLabs](https://beta.elevenlabs.io/)
+- ✅**Voice Clone**: [ElevenLabs](https://beta.elevenlabs.io/voice-lab)
+
+## 📚 Comparison with existing products
+<div align="center">
+    <img src="https://storage.googleapis.com/assistly/static/realchar/compare.png">
+</div>
 
 
 ## 👨‍🚀 Prerequisites
@@ -85,7 +161,7 @@ ELEVEN_LABS_API_KEY=<api key>
 ## 💿 Installation via Python
 - **Step 1**. Clone the repo
    ```sh
-   git clone https://github.com/Djmcflush/CofoundAIProd.git && cd CofoundAiProd
+   git clone https://github.com/Djmcflush/RealChar.git && cd RealChar
     ```
 - **Step 2**. Install requirements
     - Install [portaudio](https://people.csail.mit.edu/hubert/pyaudio/) and [ffmpeg](https://ffmpeg.org/download.html) for audio
@@ -125,7 +201,7 @@ ELEVEN_LABS_API_KEY=<api key>
     ```sh
     python cli.py run-uvicorn
     # or
-    uvicorn realtime_ai_character.main:app
+    uvicorn cofound_ai.main:app
     ```
 - **Step 7**. Run client:
     - Use **GPT4** for better conversation and **Wear headphone** for best audio(avoid echo)
@@ -151,8 +227,8 @@ ELEVEN_LABS_API_KEY=<api key>
 
 1. Docker image: you can use our docker image directly (if you are not using Apple M1/M2 CPUs)
     ```sh
-    docker pull djmcflush/cofoundai:latest
-    docker tag djmcflush/cofoundai:latest realtime-ai-character
+    docker pull shaunly/real_char:latest
+    docker tag shaunly/real_char:latest cofound-ai
     ```
     (Or you want build yourself) Build docker image
     ```sh
@@ -196,3 +272,23 @@ And it should work out of the box.
 </details>
 
 <br/>
+
+## 📍 Roadmap
+- [x] Launch v0.0.3
+- [ ] Create a new character via web UI
+- [ ] Add additional tts service
+- [ ] Better UI/UX for home page
+- [ ] Better UI/UX for conversation page
+- [ ] Support MultiOn
+- [ ] Support SocialAGI
+
+## 🫶 Contribute to RealChar
+Please check out our [Contribution Guide](contribute.md)!
+
+## 💪 Contributors
+<a href="https://github.com/Djmcflush/RealChar">
+  <img src="https://contrib.rocks/image?repo=Djmcflush/RealChar" />
+</a>
+
+## 🎲 Community
+- Join us on [Discord](https://discord.gg/e4AYNnFg2F)

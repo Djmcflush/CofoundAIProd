@@ -3,8 +3,12 @@
     "18": "^0.0.0",
     "@clerk/clerk-js": "^4.56.0",
     "@clerk/clerk-react": "^4.23.2",
-    "@material-ui/core": "^4.12.4",
+    "@floating-ui/react": "^0.25.2",
+    "antd": "^5.8.5",
     "firebase": "^10.2.0",
     "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.3"
   }
 }

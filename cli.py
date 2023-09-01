@@ -13,7 +13,7 @@ def cli():
 
 
 @click.command()
-@click.option('--name', default="realtime-ai-character",
+@click.option('--name', default="cofound-ai",
               help='The name to give to your Docker image.')
 @click.option('--rebuild', is_flag=True,
               help='Flag to indicate whether to rebuild the Docker image.')
@@ -30,7 +30,7 @@ def docker_build(name, rebuild):
 
 
 @click.command()
-@click.option('--name', default="realtime-ai-character", 
+@click.option('--name', default="cofound-ai", 
               help='The name of the Docker image to run.')
 @click.option('--db-file', default=None, 
               help='Path to the database file to mount inside the container.')
@@ -44,14 +44,14 @@ def docker_run(name, db_file):
                    stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     if db_file:
         subprocess.run(["docker", "run", "--env-file", ".env", "--name", name, "-p", "8000:8000",
-                        "-v", f"{os.path.abspath(db_file)}:/realtime_ai_character/test.db", name])
+                        "-v", f"{os.path.abspath(db_file)}:/cofound_ai/test.db", name])
     else:
         subprocess.run(["docker", "run", "--env-file", ".env",
                        "--name", name, "-p", "8000:8000", name])
 
 
 @click.command()
-@click.option('--name', default="realtime-ai-character", 
+@click.option('--name', default="cofound-ai", 
               help='The name of the Docker image to delete.')
 def docker_delete(name):
     if image_exists(name):
@@ -65,7 +65,7 @@ def docker_delete(name):
 @click.argument('args', nargs=-1, type=click.UNPROCESSED)
 def run_uvicorn(args):
     click.secho("Running uvicorn server...", fg='green')
-    subprocess.run(["uvicorn", "realtime_ai_character.main:app",
+    subprocess.run(["uvicorn", "cofound_ai.main:app",
                    "--ws-ping-interval", "60", 
                    "--ws-ping-timeout", "60", 
                    "--timeout-keep-alive", "60"] + list(args))

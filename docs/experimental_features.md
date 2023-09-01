@@ -10,7 +10,7 @@ REACT_APP_ENABLE_MULTION=true
 
 In addition, please start the uvicorn server with port 8001, e.g.
 ```
-uvicorn realtime_ai_character.main:app --port 8001
+uvicorn cofound_ai.main:app --port 8001
 ```
 Or using the CLI:
 ```

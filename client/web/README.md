@@ -16,7 +16,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-Do not forget to run server with `uvicorn realtime_ai_character.main:app` in the root folder.
+Do not forget to run server with `uvicorn cofound_ai.main:app` in the root folder.
 
 ### `npm test`
 

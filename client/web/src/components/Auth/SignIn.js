@@ -6,9 +6,9 @@
  */
 
 import React, { useState } from 'react';
-import auth from '../../utils/firebase';
+
+import { useAuth } from '@clerk/clerk-react';
 import { getHostName } from '../../utils/urlUtils';
-import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import './styles.css';
 import { isIP } from 'is-ip';
 
@@ -34,45 +34,49 @@ export const sendTokenToServer = async token => {
   }
 };
 
-export const signInWithGoogle = async (isLoggedIn, setToken) => {
-  const provider = new GoogleAuthProvider();
-  return signInWithPopup(auth, provider) // Return the promise here
-    .then(async result => {
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = await auth.currentUser.getIdToken();
+// export const signInWithGoogle = async (isLoggedIn, setToken) => {
+//   const provider = new GoogleAuthProvider();
+//   return signInWithPopup(auth, provider) // Return the promise here
+//     .then(async result => {
+//       // This gives you a Google Access Token. You can use it to access the Google API.
+//       const credential = GoogleAuthProvider.credentialFromResult(result);
+//       const token = await auth.currentUser.getIdToken();
 
-      // The signed-in user info.
-      const user = result.user;
-      isLoggedIn.current = true;
-      setToken(token);
-      await sendTokenToServer(token);
+//       // The signed-in user info.
+//       const user = result.user;
+//       isLoggedIn.current = true;
+//       setToken(token);
+//       await sendTokenToServer(token);
 
-      console.log('Sign-in successfully');
-    })
-    .catch(error => {
-      // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.error(
-        `Error occurred during sign in. Code: ${errorCode}, Message: ${errorMessage}`
-      );
-      // The email of the user's account used.
-      const email = error.customData.email;
-      // The AuthCredential type that was used.
-      const credential = GoogleAuthProvider.credentialFromError(error);
-      isLoggedIn.current = false;
-    });
-};
+//       console.log('Sign-in successfully');
+//     })
+//     .catch(error => {
+//       // Handle Errors here.
+//       const errorCode = error.code;
+//       const errorMessage = error.message;
+//       console.error(
+//         `Error occurred during sign in. Code: ${errorCode}, Message: ${errorMessage}`
+//       );
+//       // The email of the user's account used.
+//       const email = error.customData.email;
+//       // The AuthCredential type that was used.
+//       const credential = GoogleAuthProvider.credentialFromError(error);
+//       isLoggedIn.current = false;
+//     });
+// };
 
-export const signInWithClerky = async (isLoggedIn, setToken) => {
+
+export const signInWithClerky = async () => {
   // Implement the signInWithClerky function here
   // You may need to use a different provider or method depending on the Clerky authentication API
-  const frontendApi = '[your-domain].clerk.accounts.dev';
-
+  const frontendApi = 'comic-lemur-89.clerk.accounts.dev';
+  const { getToken, isLoaded, isSignedIn } = useAuth();
+  let setToken = '';
+  if (isSignedIn) {
+    setToken = await getToken();
+  }
+  return setToken;
 };
-
-
 
 const SignIn = ({ isLoggedIn, setToken }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -81,7 +85,7 @@ const SignIn = ({ isLoggedIn, setToken }) => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      await signInWithGoogle(isLoggedIn, setToken);
+      await signInWithClerky();
     } catch (error) {
       console.error('Error during sign in:', error);
     }
