@@ -26,7 +26,7 @@ const Footer = () => (
         target='_blank'
         rel='noreferrer'
       >
-        <FaDiscord />
+        <FaDiscord color='black' />
       </a>
       <a
         className='social-button twitter'
