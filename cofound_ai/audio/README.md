@@ -15,6 +15,7 @@ The audio format must be mp3 and should be about 1 minute long in total.
 Visit [ElevenLabs](https://beta.elevenlabs.io/) to create an account. You'll need this to access the speech synthesis and voice cloning features.
 
 Get your `ELEVEN_LABS_API_KEY`:
+
 1. Click profile icon and select 'profile'.
 2. Copy API Key
 
@@ -35,7 +36,7 @@ To test the voice you've just created:
 
 1. Go back to the [speech synthesis page](https://beta.elevenlabs.io/speech-synthesis).
 2. Choose the voice you just created in Settings.
-4. Type some text and click "Generate".
+3. Type some text and click "Generate".
 
 ## Fine-tuning Your Voice
 
@@ -50,6 +51,7 @@ Here are some tips:
 ## Using Your Custom Voice in Our Project
 
 You need the voice id of cloned voice. Here's how:
+
 1. go to https://api.elevenlabs.io/docs
 2. choose Get Voices api
 3. follow the instruction and find the specific voice_id in the Responses.

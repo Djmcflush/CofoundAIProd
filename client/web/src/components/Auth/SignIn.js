@@ -65,7 +65,6 @@ export const sendTokenToServer = async token => {
 //     });
 // };
 
-
 export const signInWithClerky = async () => {
   // Implement the signInWithClerky function here
   // You may need to use a different provider or method depending on the Clerky authentication API
