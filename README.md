@@ -1,5 +1,4 @@
 # <img src="./cofound_ai/static/realchar.svg" height="24px" style="padding-top:4px"/>RealChar. - Your Realtime AI Character
-
 <br/>
 <div align="center">
     <img src="./cofound_ai/static/logo.png" alt="RealChar-logo" width="80%"  style="padding: 40px"/>
@@ -303,7 +302,6 @@ And it should work out of the box.
 Please check out our [Contribution Guide](contribute.md)!
 
 ## 💪 Contributors
-
 <a href="https://github.com/Djmcflush/RealChar">
   <img src="https://contrib.rocks/image?repo=Djmcflush/RealChar" />
 </a>

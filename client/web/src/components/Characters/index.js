@@ -7,7 +7,7 @@
 
 // Characters
 import React, { useState } from 'react';
-import Button from '@mui/material/Button';
+import { Button } from '@nextui-org/react';
 import Avatar from '@mui/material/Avatar';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
@@ -63,18 +63,20 @@ const Characters = ({
               character.character_id === selectedCharacter.character_id)) && (
             <Grid item xs={isMobile ? 12 : 6} key={index}>
               <Button
-                variant='outlined'
+                rounded
+                size='lg'
+                color='gradient'
                 onClick={() => handleCharacterSelection(character)}
                 sx={{
                   width: '100%',
                   backgroundColor:
                     selectedCharacter &&
-                    character.character_id === selectedCharacter.character_id
+                      character.character_id === selectedCharacter.character_id
                       ? '#35394A'
                       : '#1B2134',
                   borderColor:
                     selectedCharacter &&
-                    character.character_id === selectedCharacter.character_id
+                      character.character_id === selectedCharacter.character_id
                       ? '#A7BFFF'
                       : '#1B2134',
                   '&:hover': {
@@ -107,7 +109,9 @@ const Characters = ({
 
       <Grid item xs={isMobile ? 12 : 6}>
         <Button
-          variant='outlined'
+          rounded
+          size='lg'
+          color='gradient'
           onClick={handleOpenDialog}
           sx={{
             width: '100%',
@@ -140,7 +144,9 @@ const Characters = ({
 
       <Grid item xs={isMobile ? 12 : 6}>
         <Button
-          variant='outlined'
+          rounded
+          size='lg'
+          color='gradient'
           onClick={handleOpenLibraryDialog}
           sx={{
             width: '100%',
@@ -196,19 +202,21 @@ const Characters = ({
                 !character.is_author ? (
                 <Grid item xs={isMobile ? 12 : 6}>
                   <Button
-                    variant='outlined'
+                    rounded
+                    size='lg'
+                    color='gradient'
                     onClick={() => handleCharacterSelection(character)}
                     sx={{
                       width: '100%',
                       backgroundColor:
                         selectedCharacter &&
-                        character.character_id ===
+                          character.character_id ===
                           selectedCharacter.character_id
                           ? '#35394A'
                           : '#1B2134',
                       borderColor:
                         selectedCharacter &&
-                        character.character_id ===
+                          character.character_id ===
                           selectedCharacter.character_id
                           ? '#A7BFFF'
                           : '#1B2134',
@@ -262,8 +270,6 @@ const Characters = ({
           }}
         >
           <Button
-            fullWidth
-            variant='contained'
             onClick={handleCloseDialog}
             sx={{ color: 'white', textTransform: 'none' }}
           >
@@ -291,24 +297,24 @@ const Characters = ({
           Select partner from your library{' '}
         </DialogTitle>
         <DialogContent>
-          <Grid container spacing={2}>
+          <Grid container spacing={3}>
             {characterGroups.map(character => {
               return character.source === 'community' && character.is_author ? (
                 <Grid item xs={isMobile ? 12 : 6}>
                   <Button
-                    variant='outlined'
+                    rounded
                     onClick={() => handleCharacterSelection(character)}
                     sx={{
                       width: '100%',
                       backgroundColor:
                         selectedCharacter &&
-                        character.character_id ===
+                          character.character_id ===
                           selectedCharacter.character_id
                           ? '#35394A'
                           : '#1B2134',
                       borderColor:
                         selectedCharacter &&
-                        character.character_id ===
+                          character.character_id ===
                           selectedCharacter.character_id
                           ? '#A7BFFF'
                           : '#1B2134',

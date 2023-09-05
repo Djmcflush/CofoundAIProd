@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import lz from 'lz-string';
 
 import Characters from '../components/Characters';
-import Button from '@mui/material/Button';
+import { Button, Loading } from '@nextui-org/react';
 import { getHostName } from '../utils/urlUtils';
 
 const clerkFrontendApi = 'comic-lemur-89.clerk.accounts.dev';
@@ -88,7 +88,8 @@ const Home = ({
             characterConfirmed={characterConfirmed}
           />
           <Button
-            variant='contained'
+            rounded
+            size='lg'
             color='primary'
             onClick={handleCreateCharacter}
             sx={{ marginBottom: '20px' }}
@@ -97,20 +98,14 @@ const Home = ({
           </Button>
 
           <Button
-            variant='contained'
-            onClick={handleNextClick}
-            fullWidth
-            size='large'
+            rounded
+            padding='md'
             disabled={!selectedCharacter}
-            sx={{
-              '&.Mui-disabled': {
-                backgroundColor: '#BEC5D9',
-                color: '#636A84',
-              },
-              textTransform: 'none',
-            }}
+            size='lg'
+            color='success'
+            css={{ px: '$13' }}
           >
-            Next
+            {!selectedCharacter ? <Loading type='points' size='lg' /> : 'Next'}
           </Button>
         </>
       )}
