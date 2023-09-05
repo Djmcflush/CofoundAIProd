@@ -71,12 +71,12 @@ const Characters = ({
                   width: '100%',
                   backgroundColor:
                     selectedCharacter &&
-                      character.character_id === selectedCharacter.character_id
+                    character.character_id === selectedCharacter.character_id
                       ? '#35394A'
                       : '#1B2134',
                   borderColor:
                     selectedCharacter &&
-                      character.character_id === selectedCharacter.character_id
+                    character.character_id === selectedCharacter.character_id
                       ? '#A7BFFF'
                       : '#1B2134',
                   '&:hover': {
@@ -210,13 +210,13 @@ const Characters = ({
                       width: '100%',
                       backgroundColor:
                         selectedCharacter &&
-                          character.character_id ===
+                        character.character_id ===
                           selectedCharacter.character_id
                           ? '#35394A'
                           : '#1B2134',
                       borderColor:
                         selectedCharacter &&
-                          character.character_id ===
+                        character.character_id ===
                           selectedCharacter.character_id
                           ? '#A7BFFF'
                           : '#1B2134',
@@ -308,13 +308,13 @@ const Characters = ({
                       width: '100%',
                       backgroundColor:
                         selectedCharacter &&
-                          character.character_id ===
+                        character.character_id ===
                           selectedCharacter.character_id
                           ? '#35394A'
                           : '#1B2134',
                       borderColor:
                         selectedCharacter &&
-                          character.character_id ===
+                        character.character_id ===
                           selectedCharacter.character_id
                           ? '#A7BFFF'
                           : '#1B2134',

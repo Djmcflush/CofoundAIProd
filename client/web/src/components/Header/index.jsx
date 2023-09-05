@@ -25,7 +25,6 @@ const Header = ({ user, isLoggedIn, setToken, handleDisconnect }) => (
         <img src={logo} alt='Logo' />
       </Navbar.Brand>
     </a>
-
     <Navbar.Content
       id='navbar'
       css={{

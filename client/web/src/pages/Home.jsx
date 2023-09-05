@@ -14,8 +14,6 @@ import Characters from '../components/Characters';
 import { Button, Loading } from '@nextui-org/react';
 import { getHostName } from '../utils/urlUtils';
 
-const clerkFrontendApi = 'comic-lemur-89.clerk.accounts.dev';
-
 const Home = ({
   isMobile,
   selectedCharacter,
@@ -99,6 +97,7 @@ const Home = ({
 
           <Button
             rounded
+            onPress={handleNextClick}
             padding='md'
             disabled={!selectedCharacter}
             size='lg'

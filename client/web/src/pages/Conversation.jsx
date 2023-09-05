@@ -146,53 +146,49 @@ const Conversation = ({
   }
 
   return (
-    <ClerkProvider frontendApi={process.env.CLERK_FRONTEND_API}>
-      <SignedIn>
-        <div className='conversation-page'>
-          {/* we render both views but only display one. */}
-          <p className='alert text-white'>
-            {isConnected.current && isThinking && isCallView ? (
-              <span>{selectedCharacter.name} is thinking...</span>
-            ) : isConnected.current && isRecording ? (
-              <span className='recording'>Recording</span>
-            ) : null}
-          </p>
+    <div className='conversation-page'>
+      {/* we render both views but only display one. */}
+      <p className='alert text-white'>
+        {isConnected.current && isThinking && isCallView ? (
+          <span>{selectedCharacter.name} is thinking...</span>
+        ) : isConnected.current && isRecording ? (
+          <span className='recording'>Recording</span>
+        ) : null}
+      </p>
 
-          <div
-            className={`avatar-wrapper ${isPlaying ? 'pulsating-avatar' : ''}`}
-          >
-            {selectedCharacter?.avatar_id ? (
-              <>{avatarDisplay}</>
-            ) : (
-              <Avatar
-                alt={selectedCharacter.name}
-                src={selectedCharacter.image_url}
-                sx={{ width: 76, height: 76 }}
-              />
-            )}
-          </div>
+      <div className={`avatar-wrapper ${isPlaying ? 'pulsating-avatar' : ''}`}>
+        {selectedCharacter?.avatar_id ? (
+          <>{avatarDisplay}</>
+        ) : (
+          <Avatar
+            alt={selectedCharacter.name}
+            src={selectedCharacter.image_url}
+            sx={{ width: 76, height: 76 }}
+          />
+        )}
+      </div>
 
-          <div
-            className='main-screen'
-            style={{ display: isCallView ? 'flex' : 'none' }}
-          >
-            <CallView
-              isRecording={isRecording}
-              isPlaying={isPlaying}
-              isResponding={isResponding}
-              audioPlayer={audioPlayer}
-              handleStopCall={handleStopCall}
-              handleContinueCall={handleContinueCall}
-              audioQueue={audioQueue}
-              audioContextRef={audioContextRef}
-              audioSourceNodeRef={audioSourceNodeRef}
-              setIsPlaying={setIsPlaying}
-              handleDisconnect={handleDisconnect}
-              setIsCallView={setIsCallView}
-              sessionId={sessionId}
-              handleFirstInteractionAudio={handleFirstInteractionAudio}
-            />
-          </div>
+      <div
+        className='main-screen'
+        style={{ display: isCallView ? 'flex' : 'none' }}
+      >
+        <CallView
+          isRecording={isRecording}
+          isPlaying={isPlaying}
+          isResponding={isResponding}
+          audioPlayer={audioPlayer}
+          handleStopCall={handleStopCall}
+          handleContinueCall={handleContinueCall}
+          audioQueue={audioQueue}
+          audioContextRef={audioContextRef}
+          audioSourceNodeRef={audioSourceNodeRef}
+          setIsPlaying={setIsPlaying}
+          handleDisconnect={handleDisconnect}
+          setIsCallView={setIsCallView}
+          sessionId={sessionId}
+          handleFirstInteractionAudio={handleFirstInteractionAudio}
+        />
+      </div>
 
       <div
         className='main-screen'
