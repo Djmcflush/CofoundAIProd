@@ -194,42 +194,36 @@ const Conversation = ({
             />
           </div>
 
-          <div
-            className='main-screen'
-            style={{ display: isCallView ? 'none' : 'flex' }}
-          >
-            <TextView
-              selectedCharacter={selectedCharacter}
-              send={send}
-              isPlaying={isPlaying}
-              isThinking={isThinking}
-              isResponding={isResponding}
-              stopAudioPlayback={stopAudioPlayback}
-              textAreaValue={textAreaValue}
-              setTextAreaValue={setTextAreaValue}
-              messageInput={messageInput}
-              setMessageInput={setMessageInput}
-              handleDisconnect={handleDisconnect}
-              setIsCallView={setIsCallView}
-              useSearch={useSearch}
-              setUseSearch={setUseSearch}
-              callActive={callActive}
-              startRecording={startRecording}
-              stopRecording={stopRecording}
-              preferredLanguage={preferredLanguage}
-              setPreferredLanguage={setPreferredLanguage}
-              messageId={messageId}
-              token={token}
-              sessionId={sessionId}
-            />
-            <TodoList />
-          </div>
-        </div>
-      </SignedIn>
-      <SignedOut>
-        <SignIn />
-      </SignedOut>
-    </ClerkProvider>
+      <div
+        className='main-screen'
+        style={{ display: isCallView ? 'none' : 'flex' }}
+      >
+        <TextView
+          selectedCharacter={selectedCharacter}
+          send={send}
+          isPlaying={isPlaying}
+          isThinking={isThinking}
+          isResponding={isResponding}
+          stopAudioPlayback={stopAudioPlayback}
+          textAreaValue={textAreaValue}
+          setTextAreaValue={setTextAreaValue}
+          messageInput={messageInput}
+          setMessageInput={setMessageInput}
+          handleDisconnect={handleDisconnect}
+          setIsCallView={setIsCallView}
+          useSearch={useSearch}
+          setUseSearch={setUseSearch}
+          callActive={callActive}
+          startRecording={startRecording}
+          stopRecording={stopRecording}
+          preferredLanguage={preferredLanguage}
+          setPreferredLanguage={setPreferredLanguage}
+          messageId={messageId}
+          token={token}
+          sessionId={sessionId}
+        />
+      </div>
+    </div>
   );
 };
 

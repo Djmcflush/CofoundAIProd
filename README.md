@@ -29,6 +29,7 @@
 </div>
 
 ## ✨ Demo
+
 Try our site at [RealChar.ai](https://realchar.ai/)
 
 (We are also beta-testing our iOS mobile app📱! Sign up [here](https://testflight.apple.com/join/JA6p9sZQ))
@@ -43,11 +44,10 @@ https://github.com/Djmcflush/RealChar/assets/5101573/5de0b023-6cf3-4947-84cb-596
 
 https://github.com/Djmcflush/RealChar/assets/5101573/62a1f3d1-1166-4254-9119-97647be52c42
 
-
-
-__Demo settings: Web, GPT4, ElevenLabs with voice clone, Chroma, Google Speech to Text__
+**Demo settings: Web, GPT4, ElevenLabs with voice clone, Chroma, Google Speech to Text**
 
 ## 🎯 Key Features
+
 - **Easy to use**: No coding required to create your own AI character.
 - **Customizable**: You can customize your AI character's personality, background, and even voice
 - **Realtime**: Talk to or message your AI character in realtime
@@ -56,6 +56,7 @@ __Demo settings: Web, GPT4, ElevenLabs with voice clone, Chroma, Google Speech t
 - **Modular**: You can easily swap out different modules to customize your flow. Less opinionated, more flexible. Great project to start your AI Engineering journey.
 
 ## 🔬 Tech stack
+
 <div align="center">
     <img src="https://storage.googleapis.com/assistly/static/realchar/techstackv003.jpeg" alt="RealChar-tech-stack" width="100%"  style="padding: 20px"/>
 </div>
@@ -71,10 +72,10 @@ __Demo settings: Web, GPT4, ElevenLabs with voice clone, Chroma, Google Speech t
 - ✅**Voice Clone**: [ElevenLabs](https://beta.elevenlabs.io/voice-lab)
 
 ## 📚 Comparison with existing products
+
 <div align="center">
     <img src="https://storage.googleapis.com/assistly/static/realchar/compare.png">
 </div>
-
 
 ## 👨‍🚀 Prerequisites
 
@@ -82,8 +83,8 @@ Before you begin setting up this project, please ensure you have completed the f
 
 ### 0. Setup Tutorial
 
+### 1. LLM - OpenAI API Token
 
-### 1. LLM -  OpenAI API Token
 <details><summary>👇click me</summary>
 This application utilizes the OpenAI API to access its powerful language model capabilities. In order to use the OpenAI API, you will need to obtain an API token.
 
@@ -98,14 +99,14 @@ To get your OpenAI API token, follow these steps:
 (Optional) To use Azure OpenAI API instead, refer to the following section:
 
 1. Set API type
-`export OPENAI_API_TYPE=azure`
+   `export OPENAI_API_TYPE=azure`
 
 If you want to use the earlier version `2023-03-15-preview`:
 
 `export OPENAI_API_VERSION=2023-03-15-preview`
 
 2. To set the base URL for your Azure OpenAI resource.
-You can find this in the Azure portal under your Azure OpenAI resource.
+   You can find this in the Azure portal under your Azure OpenAI resource.
 
 `export OPENAI_API_BASE=https://your-base-url.openai.azure.com`
 
@@ -119,7 +120,8 @@ You can find this in the Azure portal under your Azure OpenAI resource.
 
 </details>
 
-### 1.1 (Optional) Prepare LLM -  Anthropic(Claude 2) API Token
+### 1.1 (Optional) Prepare LLM - Anthropic(Claude 2) API Token
+
 <details><summary>👇click me</summary>
 
 To get your Anthropic API token, follow these steps:
@@ -132,6 +134,7 @@ To get your Anthropic API token, follow these steps:
 </details>
 
 ### 2. (Optional) Prepare Speech to Text - Google Cloud API
+
 <details><summary>👇click me</summary>
 
 To get your Google Cloud API credentials.json, follow these steps:
@@ -142,8 +145,8 @@ To get your Google Cloud API credentials.json, follow these steps:
 4. Change `SPEECH_TO_TEXT_USE` to use `GOOGLE` in your `.env` file
 </details>
 
-
 ### 3. Prepare Text to Speech - ElevenLabs API Key
+
 <details><summary>👇click me</summary>
 
 1. Creating an ElevenLabs Account
@@ -153,120 +156,131 @@ Visit [ElevenLabs](https://beta.elevenlabs.io/) to create an account. You'll nee
 2. In your Profile Setting, you can get an API Key. Save it in a safe place.
 
 3. Set API key in your .env file:
+
 ```
 ELEVEN_LABS_API_KEY=<api key>
 ```
+
 </details>
 
 ## 💿 Installation via Python
-- **Step 1**. Clone the repo
-   ```sh
-   git clone https://github.com/Djmcflush/RealChar.git && cd RealChar
-    ```
-- **Step 2**. Install requirements
-    - Install [portaudio](https://people.csail.mit.edu/hubert/pyaudio/) and [ffmpeg](https://ffmpeg.org/download.html) for audio
-    ```sh
-    # for mac
-    brew install portaudio
-    brew install ffmpeg
-    ```
-    ```sh
-    # for ubuntu
-    sudo apt update
-    sudo apt install portaudio19-dev
-    sudo apt install ffmpeg
-    ```
-    - Then install all python requirements
-    ```sh
-    pip install -r requirements.txt
-    ```
-- **Step 3**. Create an empty [sqlite](https://www.sqlite.org/index.html) database if you have not done so before
-    ```sh
-    sqlite3 test.db "VACUUM;"
-    ```
-- **Step 4**. Run db upgrade
-    ```sh
-    alembic upgrade head
-    ```
-    This ensures your database schema is up to date. Please run this after every time you pull the main branch.
-- **Step 5**. Setup `.env`: update API keys and select module
-   ```sh
-   cp .env.example .env
-   ```
-- **Step 6**. Run server with `cli.py` or use uvicorn directly
-    ```sh
-    # Build the web fronend.
-    python cli.py web-build
-    ```
-    ```sh
-    python cli.py run-uvicorn
-    # or
-    uvicorn cofound_ai.main:app
-    ```
-- **Step 7**. Run client:
-    - Use **GPT4** for better conversation and **Wear headphone** for best audio(avoid echo)
-    - There are two ways to access the web client:
-        - **Option 1** Open your web browser and navigate to http://localhost:8000 (NOT 0.0.0.0:8000)
-          - **Make sure you have ran `python cli.py web-build` before starting the server.**
-        - **Option 2**: Running the client in React.
-            ```sh
-            cd client/web
-            npm install
-            npm start
-            ```
-            After running these commands, a local development server will start, and your default web browser will open a new tab/window pointing to this server (usually http://localhost:3000).
-    - (Optional) Terminal client: Run the following command in your terminal
-    ```sh
-    python client/cli.py
-    ```
-    - (Optional) mobile client: open `client/mobile/ios/rac/rac.xcodeproj/project.pbxproj` in Xcode and run the app
 
+- **Step 1**. Clone the repo
+  ```sh
+  git clone https://github.com/Djmcflush/RealChar.git && cd RealChar
+  ```
+- **Step 2**. Install requirements
+  - Install [portaudio](https://people.csail.mit.edu/hubert/pyaudio/) and [ffmpeg](https://ffmpeg.org/download.html) for audio
+  ```sh
+  # for mac
+  brew install portaudio
+  brew install ffmpeg
+  ```
+  ```sh
+  # for ubuntu
+  sudo apt update
+  sudo apt install portaudio19-dev
+  sudo apt install ffmpeg
+  ```
+  - Then install all python requirements
+  ```sh
+  pip install -r requirements.txt
+  ```
+- **Step 3**. Create an empty [sqlite](https://www.sqlite.org/index.html) database if you have not done so before
+  ```sh
+  sqlite3 test.db "VACUUM;"
+  ```
+- **Step 4**. Run db upgrade
+  ```sh
+  alembic upgrade head
+  ```
+  This ensures your database schema is up to date. Please run this after every time you pull the main branch.
+- **Step 5**. Setup `.env`: update API keys and select module
+  ```sh
+  cp .env.example .env
+  ```
+- **Step 6**. Run server with `cli.py` or use uvicorn directly
+  ```sh
+  # Build the web fronend.
+  python cli.py web-build
+  ```
+  ```sh
+  python cli.py run-uvicorn
+  # or
+  uvicorn cofound_ai.main:app
+  ```
+- **Step 7**. Run client:
+  - Use **GPT4** for better conversation and **Wear headphone** for best audio(avoid echo)
+  - There are two ways to access the web client:
+    - **Option 1** Open your web browser and navigate to http://localhost:8000 (NOT 0.0.0.0:8000)
+      - **Make sure you have ran `python cli.py web-build` before starting the server.**
+    - **Option 2**: Running the client in React.
+      ```sh
+      cd client/web
+      npm install
+      npm start
+      ```
+      After running these commands, a local development server will start, and your default web browser will open a new tab/window pointing to this server (usually http://localhost:3000).
+  - (Optional) Terminal client: Run the following command in your terminal
+  ```sh
+  python client/cli.py
+  ```
+  - (Optional) mobile client: open `client/mobile/ios/rac/rac.xcodeproj/project.pbxproj` in Xcode and run the app
 
 ## (Optional) 📀 Installation via Docker
+
 <details><summary>👇click me</summary>
 
 1. Docker image: you can use our docker image directly (if you are not using Apple M1/M2 CPUs)
-    ```sh
-    docker pull shaunly/real_char:latest
-    docker tag shaunly/real_char:latest cofound-ai
-    ```
-    (Or you want build yourself) Build docker image
-    ```sh
-    python cli.py docker-build
-    ```
-    If you have issues with docker (especially on a non-Linux machine), please refer to https://docs.docker.com/get-docker/ (installation) and https://docs.docker.com/desktop/troubleshoot/overview/ (troubleshooting).
+   ```sh
+   docker pull shaunly/real_char:latest
+   docker tag shaunly/real_char:latest cofound-ai
+   ```
+   (Or you want build yourself) Build docker image
+   ```sh
+   python cli.py docker-build
+   ```
+   If you have issues with docker (especially on a non-Linux machine), please refer to https://docs.docker.com/get-docker/ (installation) and https://docs.docker.com/desktop/troubleshoot/overview/ (troubleshooting).
 2. Run docker image with `.env` file
-    ```sh
-    python cli.py docker-run
-    ```
 
-3. Go to http://localhost:8000 (NOT 0.0.0.0:8000) to start talking or use terminal    client
-    ```sh
-    python client/cli.py
-    ```
+   ```sh
+   python cli.py docker-run
+   ```
+
+3. Go to http://localhost:8000 (NOT 0.0.0.0:8000) to start talking or use terminal client
+   ```sh
+   python client/cli.py
+   ```
 
 </details>
 
 <br/>
 
 ## 🆕! Anyscale and LangSmith integration
+
 <details><summary>👇click me</summary>
 
 ### Anyscale
+
 You can now use [Anyscale Endpoint](https://app.endpoints.anyscale.com/landing) to serve Llama-2 models in your CofoundAI easily! Simply register an account with Anyscale Endpoint. Once you get the API key, set this environment variable in your `.env` file:
+
 ```
 ANYSCALE_ENDPOINT_API_KEY=<your API Key>
 ```
+
 By default, we show the largest servable Llama-2 model (70B) in the Web UI. You can change the model name (`meta-llama/Llama-2-70b-chat-hf`) to other models, e.g. 13b or 7b versions.
 
 ### LangSmith
+
 If you have access to LangSmith, you can edit these environment variables to enable:
+
 ```
 LANGCHAIN_TRACING_V2=false # default off
 LANGCHAIN_ENDPOINT=https://api.smith.langchain.com
 LANGCHAIN_API_KEY=YOUR_LANGCHAIN_API_KEY
 LANGCHAIN_PROJECT=YOUR_LANGCHAIN_PROJECT
 ```
+
 And it should work out of the box.
 
 </details>
@@ -274,6 +288,7 @@ And it should work out of the box.
 <br/>
 
 ## 📍 Roadmap
+
 - [x] Launch v0.0.3
 - [ ] Create a new character via web UI
 - [ ] Add additional tts service
@@ -283,6 +298,7 @@ And it should work out of the box.
 - [ ] Support SocialAGI
 
 ## 🫶 Contribute to RealChar
+
 Please check out our [Contribution Guide](contribute.md)!
 
 ## 💪 Contributors
@@ -291,4 +307,5 @@ Please check out our [Contribution Guide](contribute.md)!
 </a>
 
 ## 🎲 Community
+
 - Join us on [Discord](https://discord.gg/e4AYNnFg2F)
