@@ -226,7 +226,7 @@ const CharCreate = ({ token }) => {
 
   return (
     <div className='home'>
-      <h1>Create a character</h1>
+      <h1>Create an Employee</h1>
       <Avatar
         src={image}
         style={{ margin: '10px', width: '100px', height: '100px' }}

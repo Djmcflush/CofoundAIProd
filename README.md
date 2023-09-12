@@ -137,6 +137,7 @@ And it should work out of the box.
 Please check out our [Contribution Guide](contribute.md)!
 
 ## 💪 Contributors
+
 <a href="https://github.com/Djmcflush/RealChar">
   <img src="https://contrib.rocks/image?repo=Djmcflush/RealChar" />
 </a>
